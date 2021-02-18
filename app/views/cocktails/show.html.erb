@@ -2,13 +2,25 @@
 <h2><%= @cocktail.name %></h2>
 <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
 </div>
-
+<br>
+<br>
+<div class="d-flex justify-content-between align-items-center">
+<h4>Ingredients</h4>
+<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
+</div>
 <ul class="list-group">
-<% @cocktail.ingredients.each do |ingredient| %>
-    <li class="list-item">
-    <%= ingredient.name %>
+<% @cocktail.doses.each do |dose| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="div">
+            <%= dose.ingredient.name %>
+            <%= dose.description %>
+        </div>
+        <div class="div">
+            <%= link_to "Delete", cocktail_dose_path(@cocktail), html_options = {
+                method: :delete,
+                class: "btn btn-danger"
+            }%>
+        </div>
     </li>
-
-
 <% end %>
 </ul>
