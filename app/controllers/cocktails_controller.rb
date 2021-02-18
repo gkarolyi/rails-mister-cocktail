@@ -1,11 +1,12 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: :show
+  before_action :set_cocktail, only: [:show, :image]
 
   def index
     @cocktails = Cocktail.all
   end
 
   def show
+    fetch_image unless @cocktail.img_url
     @dose = Dose.new
   end
 
@@ -26,5 +27,14 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name)
+  end
+
+  def fetch_image
+    url = URI.encode("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{@cocktail.name}")
+    drink = JSON.parse(URI(url)
+                .read)['drinks']
+                .first
+    @cocktail.img_url = drink['strDrinkThumb']
+    @cocktail.save
   end
 end
