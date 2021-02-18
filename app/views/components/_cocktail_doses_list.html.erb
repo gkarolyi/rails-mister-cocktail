@@ -3,8 +3,8 @@
         <% @cocktail.doses.each do |dose| %>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="div">
-                    <span class="btn btn-warning"><%= dose.ingredient.name %></span>
-                    <%= dose.id %>
+                    <span class="p-2 btn-warning"><%= dose.ingredient.name %></span>
+                    <%= dose.description %>
                 </div>
                 <div class="div">
                     <%= link_to icon('far', 'trash-alt'), [@cocktail, dose], html_options = {

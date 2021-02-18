@@ -3,16 +3,4 @@
 
 <%= render "components/navbar" %>
 
-
 <%= render 'components/cocktail_grid' %>
-
-
-<ul class="list-group">
-<% @cocktails.each do |cocktail| %>
-    <li class="list-group-item">
-    <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-
-
-<% end %>
-</ul>
