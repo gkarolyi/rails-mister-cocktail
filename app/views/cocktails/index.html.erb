@@ -1,8 +1,7 @@
-<div class="d-flex justify-content-between align-items-center">
-<h2>All cocktails</h2>
-<%= link_to icon('fas', 'plus', class: 'strong'), new_cocktail_path, class: "btn btn-primary" %>
-</div>
+<% @title = "All cocktails" %>
+<% @left_nav_icon = (link_to icon('fas', 'plus', class: 'strong'), new_cocktail_path, class: "btn btn-primary") %>
 
+<%= render "components/navbar" %>
 
 <ul class="list-group">
 <% @cocktails.each do |cocktail| %>

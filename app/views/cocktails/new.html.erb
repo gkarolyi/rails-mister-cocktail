@@ -1,4 +1,5 @@
-<h2>Add a new cocktail</h2>
+<% @title = "Add a new cocktail" %>
+<%= render "components/navbar" %>
 
 <%= simple_form_for @cocktail do |f| %>
 <%= f.input :name %>
