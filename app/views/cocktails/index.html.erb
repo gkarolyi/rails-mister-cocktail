@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between align-items-center">
+<h2>All cocktails</h2>
+<%= link_to icon('fas', 'plus', class: 'strong'), new_cocktail_path, class: "btn btn-primary" %>
+</div>
+
+
+<ul class="list-group">
+<% @cocktails.each do |cocktail| %>
+    <li class="list-item">
+    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </li>
+
+
+<% end %>
+</ul>
