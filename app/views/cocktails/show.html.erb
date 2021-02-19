@@ -9,6 +9,7 @@
 
 <div class="d-flex justify-content-between align-items-center">
     <h4>Ingredients</h4>
+    <%= link_to "Autofill details", cocktail_path(@cocktail), method: 'patch' %>
 </div>
 <%= render 'components/cocktail_doses_list' %>
 <br>
