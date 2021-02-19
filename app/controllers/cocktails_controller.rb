@@ -39,8 +39,7 @@ class CocktailsController < ApplicationController
       Dose.create(
         description: value,
         cocktail: @cocktail,
-        ingredient: Ingredient.where(name: key)
-                              .first_or_create { |ing| ing.name = key }
+        ingredient: Ingredient.find_by(name: key) || Ingredient.create!(name: key)
       )
     end
     redirect_to cocktail_path(@cocktail)
